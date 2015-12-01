@@ -9,9 +9,12 @@ class Starter {
 	
 	
 	def static void main(String[] args) {
-		//val vertx = Vertx.vertx(new VertxOptions);
+		val vertx = Vertx.vertx(new VertxOptions);
 		
 		LOG.info('im here')
+		
+		vertx.deployVerticle(LogReader.name)
+		vertx.deployVerticle(LogEventProcessor.name)
 		
 	}	
 }
